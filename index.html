@@ -63,7 +63,7 @@
       </div>
     </div>
 <div class="image">
-    <img draggable="false" class="tilt" src="./assets/images/IMG_0009.jpg" alt="">
+    <img draggable="false" class="tilt" src="./assets/images/profile2.jpeg" alt="">
 </div>
 </section>
 <!-- hero section ends -->
@@ -79,7 +79,7 @@
     <div class="row">
 
     <div class="image">
-        <img draggable="false" class="tilt" src="./assets/images/profile2.jpeg" alt="">
+        <img draggable="false" class="tilt" src="./assets/images/IMG_0009.JPG" alt="">
     </div>
     <div class="content">
         <h3>I'm Dharmik</h3>
@@ -286,7 +286,7 @@
         <div class="content">
         <h3>Master of Applied Computing | Computer Science</h3>
         <p>University of Windsor</p>
-        <h4>2018-2020 | Pursuing</h4>
+        <h4>2023-2024 | Completed</h4>
         </div>
       </div>
       
@@ -325,7 +325,7 @@
   <div class="box-container">
 
      <div class="box tilt">
-      <img draggable="false" src="./assets/images/projects/portfolio1.png" alt="" />
+      <img draggable="false" src="./assets/images/projects/portfolio1.PNG" alt="" />
       <div class="content">
         <div class="tag">
         <h3>Portfolio Website</h3>
@@ -342,6 +342,26 @@
 
 </div>
 
+<div class="box-container">
+
+  <div class="box tilt">
+   <img draggable="false" src="./assets/images/projects/portfolio1.PNG" alt="" />
+   <div class="content">
+     <div class="tag">
+     <h3>Portfolio Website</h3>
+     </div>
+     <div class="desc">
+       <p>Personal portfolio website. Don't need much info about it, just scroll down. You're here only!</p>
+       <div class="btns">
+         <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+         <a href="https://github.com/Dharmik-Patel/Portfolio-Website" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+       </div>
+     </div>
+   </div>
+ </div> 
+
+</div>
+
 <div class="viewall">
   <a href="/projects" class="btn"><span>View All</span>
     <i class="fas fa-arrow-right"></i>
@@ -353,45 +373,33 @@
 
 <!-- experience section starts -->
 <section class="experience" id="experience">
-
   <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
 
   <div class="timeline">
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Grubbrr</h2>
-        </div>
-        <div class="desc">
-            <h3>Software Developer(.Net Developer)</h3>
-            <p>Aug 2021 - Jun 2024</p>
-        </div>
+      <div class="container right">
+          <div class="content">
+              <div class="tag">
+                  <h2>Grubbrr</h2>
+              </div>
+              <div class="desc">
+                  <h3>Software Developer(.Net Developer)</h3>
+                  <p>Aug 2021 - Jun 2024</p>
+              </div>
+          </div>
       </div>
-    </div>
 
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Indian Space Research Organisation(ISRO)</h2>
-        </div>
-        <div class="desc">
-            <h3>Data Analyst | Internship</h3>
-            <p>Dec 2020 - Jun 2021</p>
-        </div>
+      <div class="container left">
+          <div class="content">
+              <div class="tag">
+                  <h2>Indian Space Research Organisation(ISRO)</h2>
+              </div>
+              <div class="desc">
+                  <h3>Data Analyst | Internship</h3>
+                  <p>Dec 2020 - Jun 2021</p>
+              </div>
+          </div>
       </div>
-    </div>
-
-    
-
-   <!-- <div class="morebtn">
-    <a href="/experience" class="btn"><span>View All</span>
-      <i class="fas fa-arrow-right"></i>
-  </a>
-  </div>  -->
-
-</div>
-
+  </div>
 </section>
 <!-- experience section ends -->
 
@@ -499,11 +507,190 @@
 <!-- scroll reveal anim -->
 <script src="https://unpkg.com/scrollreveal"></script>
 
+<!-- First script tag: Load EmailJS CDN -->
 <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
-    ></script>
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js">
+</script>
 
+<!-- Second script tag: Your JavaScript code -->
+<!-- First script tag: Load EmailJS CDN -->
+<script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js">
+</script>
+
+<!-- Second script tag: Your JavaScript code -->
+<script type="text/javascript">
+// Initialize EmailJS
+(function() {
+    emailjs.init("44cK79AqVsSsptlBu");
+    //console.log("EmailJS initialized");
+})();
+
+// Wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', function() {
+    //console.log("DOM loaded, looking for contact form...");
+    
+    const contactForm = document.getElementById('contact-form');
+    
+    if (!contactForm) {
+        console.error("Contact form not found!");
+        return;
+    }
+    
+    //console.log("Contact form found, adding event listener...");
+    
+    contactForm.addEventListener('submit', function(event) {
+        // CRITICAL: Prevent all default form behaviors
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        
+        console.log("=== FORM SUBMISSION STARTED ===");
+        
+        // Get form elements
+        const nameField = this.querySelector('input[name="name"]');
+        const emailField = this.querySelector('input[name="email"]');
+        const phoneField = this.querySelector('input[name="phone"]');
+        const messageField = this.querySelector('textarea[name="message"]');
+        const submitBtn = this.querySelector('button[type="submit"]');
+        
+        // Validate required fields
+        if (!nameField.value.trim() || !emailField.value.trim() || !messageField.value.trim()) {
+            console.log("Validation failed - missing required fields");
+            showNotification('Please fill in all required fields.', 'error');
+            return false; // Explicitly return false
+        }
+        
+        // Prepare template parameters
+        const templateParams = {
+            name: nameField.value.trim(),
+            email: emailField.value.trim(),
+            phone: phoneField.value.trim() || 'Not provided',
+            message: messageField.value.trim()
+        };
+        
+        // Show loading state
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+        submitBtn.disabled = true;
+        
+        console.log("Sending email via EmailJS...");
+        
+        // Send email
+        emailjs.send('service_llnjpig', 'template_y9hy07h', templateParams)
+            .then(function(response) {
+                console.log("=== EMAIL SENT SUCCESSFULLY ===");
+                console.log("Response:", response);
+                
+                // Reset button
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Show success notification
+                showNotification('Message sent successfully! Thank you for reaching out.', 'success');
+                
+                // Reset form
+                contactForm.reset();
+                
+                console.log("Success handler completed");
+            })
+            .catch(function(error) {
+                console.log("=== EMAIL SENDING FAILED ===");
+                console.log("Error object:", error);
+                
+                // Reset button
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Determine error message
+                let errorMessage = 'Failed to send message. Please contact me directly at dharmikp067@gmail.com';
+                
+                if (error.status === 400) {
+                    errorMessage = 'Configuration error. Please contact me directly at dharmikp067@gmail.com';
+                } else if (error.status === 401) {
+                    errorMessage = 'Authentication error. Please contact me directly at dharmikp067@gmail.com';
+                } else if (error.status === 426) {
+                    errorMessage = 'Service quota exceeded. Please contact me directly at dharmikp067@gmail.com';
+                }
+                
+                // Show error notification
+                showNotification(errorMessage, 'error');
+                
+                console.log("Error handler completed");
+            });
+        
+        // Explicitly return false to prevent any default action
+        return false;
+    });
+    
+    //console.log("Event listener added successfully");
+});
+
+// Notification function
+function showNotification(message, type) {
+    console.log(`Showing ${type} notification:`, message);
+    
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(n => {
+        console.log("Removing existing notification");
+        n.remove();
+    });
+    
+    // Create notification
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    
+    notification.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            <span>${message}</span>
+            <i class="fas fa-times" style="margin-left: auto; cursor: pointer;" onclick="this.closest('.notification').remove()"></i>
+        </div>
+    `;
+    
+    // Apply styles
+    Object.assign(notification.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        background: type === 'success' ? '#4CAF50' : '#f44336',
+        color: 'white',
+        padding: '15px 20px',
+        borderRadius: '8px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+        zIndex: '10000',
+        maxWidth: '400px',
+        fontSize: '14px',
+        fontFamily: 'Arial, sans-serif',
+        opacity: '0',
+        transform: 'translateX(100%)',
+        transition: 'all 0.3s ease-out'
+    });
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Trigger animation
+    setTimeout(() => {
+        notification.style.opacity = '1';
+        notification.style.transform = 'translateX(0)';
+    }, 10);
+    
+    // Auto remove
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 5000);
+    
+    console.log("Notification displayed");
+}
+</script>
 <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
 
 <script src="./assets/js/script.js"></script>
